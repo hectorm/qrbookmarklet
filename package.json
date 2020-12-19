@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "name": "qrbookmarklet",
+  "version": "1.0.0",
+  "description": "Generate a QR code for the page you are currently viewing",
+  "author": "Héctor Molinero Fernández <hector@molinero.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/hectorm/qrbookmarklet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hectorm/qrbookmarklet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hectorm/qrbookmarklet/issues"
+  },
+  "main": "./src/main.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "qrcode-generator": "~1.4.4"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.12.10",
+    "@babel/preset-env": "~7.12.11",
+    "@rollup/plugin-babel": "~5.2.2",
+    "@rollup/plugin-commonjs": "~17.0.0",
+    "@rollup/plugin-node-resolve": "~11.0.1",
+    "eslint": "~7.16.0",
+    "eslint-config-airbnb-base": "~14.2.1",
+    "eslint-config-hectorm": "~1.0.8",
+    "eslint-plugin-import": "~2.22.1",
+    "rollup": "~2.35.1",
+    "rollup-plugin-terser": "~7.0.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "browserslist": [
+    "Maintained Node versions",
+    "Last 2 versions and not dead",
+    "Firefox ESR"
+  ]
+}
