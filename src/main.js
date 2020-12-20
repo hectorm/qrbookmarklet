@@ -8,18 +8,20 @@ const qr = qrcode(0, 'M');
 qr.addData(qrText);
 qr.make();
 
-const qrWindow = window.open('', '_blank', 'width=1,height=1');
-const qrDocument = qrWindow.document;
+const qrWindow = window.open('', '_blank', [
+	`top=${window.screenTop}`, `left=${window.screenLeft}`,
+	'width=100', 'height=100'
+].join(','));
 
-qrDocument.open();
-qrDocument.write(qr.createSvgTag(8, 8));
-qrDocument.close();
+qrWindow.document.open();
+qrWindow.document.write(qr.createSvgTag(8, 8));
+qrWindow.document.close();
 
-qrDocument.title = window.document.title;
-qrDocument.body.style.margin = 0;
+qrWindow.document.title = window.document.title;
+qrWindow.document.body.style.margin = 0;
 
 setTimeout(() => {
-	const qrSvg = qrDocument.querySelector('svg');
+	const qrSvg = qrWindow.document.querySelector('svg');
 	const qrSvgRect = qrSvg.getBoundingClientRect();
 	qrWindow.resizeTo(
 		qrSvgRect.width + (qrWindow.outerWidth - qrWindow.innerWidth),
